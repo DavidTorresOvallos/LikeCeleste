@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "Celeste": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    },
+    "Profile 1": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\David\\Documents\\Godot\\Godot_v3.5.2-stable_mono_win64.exe",
+      "commandLineArgs": "--path.--verbose",
+      "workingDirectory": ".",
+      "remoteDebugMachine": ".",
+      "nativeDebugging": true
+    }
+  }
+}
