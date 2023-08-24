@@ -3,11 +3,9 @@ using System;
 
 public class Player : KinematicBody2D
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
-
-    // Called when the node enters the scene tree for the first time.
+    private int speed = 600;
+    private int gravity = 4000;
+    private float friction = .25f;
     public override void _Ready()
     {
         
@@ -16,14 +14,25 @@ public class Player : KinematicBody2D
     public override void _Process(float delta)
     {
         Vector2 velocity = new Vector2();
+        int direction = 0;
         if (Input.IsActionPressed("ui_left"))
         {
-            velocity.x -= 50;
+            direction += 1;
+            velocity.x -= speed;
         }
         if (Input.IsActionPressed("ui_right"))
         {
-            velocity.x += 50;
+            direction -= 1;
+            velocity.x += speed;
         }
+        if (Input.IsActionJustPressed("jump"))
+        {
+            if (IsOnFloor())
+            {
+                velocity.y -= 2000;
+            }
+        }
+        velocity.y += 500 * delta;
         MoveAndSlide(velocity, Vector2.Up);
     }
 }
